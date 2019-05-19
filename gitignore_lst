@@ -1,0 +1,38 @@
+# compilation and distribution
+__pycache__
+_ext
+*.pyc
+*.so
+*.a
+*.out
+maskrcnn_benchmark.egg-info/
+build/
+dist/
+dnt_backend/object_ba/cmake-build-debug
+.vscode/
+cmake-build-debug/
+bin/
+
+# pytorch/python/numpy formats
+*.pth
+*.pkl
+*.npy
+
+# ipython/jupyter notebooks
+*.ipynb
+**/.ipynb_checkpoints/
+
+# Editor temporaries
+*.swn
+*.swo
+*.swp
+*~
+
+# Pycharm editor settings
+.idea
+
+# project dirs
+/datasets
+/models
+/output
+/workspace
