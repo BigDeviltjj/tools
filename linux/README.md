@@ -23,8 +23,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo apt-get install tmux
 ```
 
-4. vim
+4. vim (ONLY FOR MAC BECAUSE SPACEVIM IN LINUX SUCKS!)
 ```
+brew install ctags-exuberant
 curl -sLf https://spacevim.org/install.sh | bash
 ```
 
@@ -37,7 +38,7 @@ brew cask install font-hack-nerd-font
 
 then change ```font``` and ```Non-ascii font```  in iterm2 preferences-profilers-text
 
-5. vscode remove server
+5. vscode remove server(linux version since remote-server is always centos)
 ```
 cd ~/Downloads
 wget https://github.com/cdr/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
