@@ -63,19 +63,18 @@ join_threads joiner;
 
 上面bug修正后又发现```thread_pool_work_stealing```总是不能正常构造，一通debug发现这与编译器优化有关
 ```
-            for (unsigned i = 0; i < thread_count; ++i)
-            {
-                queues.push_back(std::unique_ptr<work_stealing_queue>(new work_stealing_queue));
-            }
+for (unsigned i = 0; i < thread_count; ++i)
+{
+    queues.push_back(std::unique_ptr<work_stealing_queue>(new work_stealing_queue));
+}
 
 
-            for (unsigned i = 0; i < thread_count; ++i)
-            {
-                threads.push_back(
-                        std::thread(&thread_pool::worker_thread, this, i));
-            }
+for (unsigned i = 0; i < thread_count; ++i)
+{
+    threads.push_back(
+            std::thread(&thread_pool::worker_thread, this, i));
+}
 ```
 两个push_back不可以写在同一个循环里，否则无法保证其执行顺序，需要将其定义为```volatile```，可是这个涉及到内存模型需要花大量时间重构（其实就是不会），
 所以干脆分成两个for循环执行保证其正确.
-```
 

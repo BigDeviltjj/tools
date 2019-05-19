@@ -4,6 +4,7 @@ _ext
 *.pyc
 *.so
 *.a
+*.dylib
 *.out
 maskrcnn_benchmark.egg-info/
 build/

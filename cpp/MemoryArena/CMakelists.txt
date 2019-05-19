@@ -1,0 +1,38 @@
+PROJECT(memory_arena)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
+INCLUDE (CheckCXXSourceCompiles)
+INCLUDE (CheckCXXSourceRuns)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+CHECK_CXX_SOURCE_COMPILES (
+  "int main() { int x = alignof(double); }"
+  HAVE_ALIGNOF )
+IF ( HAVE_ALIGNOF )
+  ADD_DEFINITIONS ( -D HAVE_ALIGNOF )
+ENDIF ()
+
+CHECK_CXX_SOURCE_COMPILES ( "
+#include <malloc.h>
+int main() { void * ptr = _aligned_malloc(1024, 32); }
+" HAVE__ALIGNED_MALLOC )
+
+CHECK_CXX_SOURCE_COMPILES ( "
+#include <stdlib.h>
+int main() {
+  void *ptr;
+  posix_memalign(&ptr, 32, 1024);
+} " HAVE_POSIX_MEMALIGN )
+
+IF ( HAVE__ALIGNED_MALLOC )
+  ADD_DEFINITIONS ( -D HAVE__ALIGNED_MALLOC )
+ELSEIF ( HAVE_POSIX_MEMALIGN )
+  ADD_DEFINITIONS ( -D HAVE_POSIX_MEMALIGN )
+ELSEIF ( HAVE_MEMALIGN )
+  ADD_DEFINITIONS ( -D HAVE_MEMALIGN )
+ELSE ()
+  MESSAGE ( SEND_ERROR "Unable to find a way to allocate aligned memory" )
+ENDIF ()
+
+ADD_LIBRARY(memory_arena SHARED memory.h memory.cpp)
+set_target_properties(memory_arena PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+
