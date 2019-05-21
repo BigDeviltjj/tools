@@ -28,13 +28,14 @@ Creator: Tangjiajie 2019.5.19
 
  */
 
+#ifndef MEMORY_H
+#define MEMORY_H
+
 #if defined(_MSC_VER)
 #define NOMINMAX
 #pragma once
 #endif
 
-#ifndef MEMORY_H
-#define MEMORY_H
 
 #include <list>
 #include <cstddef>
@@ -56,7 +57,7 @@ T *AllocAligned(size_t count) {
 void FreeAligned(void *);
 class
 alignas(64)
-    MemoryArena {
+  MemoryArena {
   public:
     // MemoryArena Public Methods
     MemoryArena(size_t blockSize = 262144) : blockSize(blockSize) {}
@@ -136,3 +137,5 @@ alignas(64)
     std::list<std::pair<size_t, uint8_t *>> usedBlocks, availableBlocks;
 };
 
+
+#endif
