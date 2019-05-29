@@ -10,7 +10,7 @@ tar -xzvf cmake-$version.$build.tar.gz
 cd cmake-$version.$build/
 
 ./bootstrap
-make -j8
+make -j2
 sudo make install
 
 

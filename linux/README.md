@@ -1,28 +1,6 @@
 ### linux tools:
 
-1. zsh
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-2. zsh-syntax-highlighting
-```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-```
-
-3. fzf
-```
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-```
-
-3. tmux
-```
-sudo apt-get install tmux
-```
-
-4. vim (ONLY FOR MAC BECAUSE SPACEVIM IN LINUX SUCKS!)
+1. space vim (FOR MAC) 
 ```
 brew install ctags-exuberant
 curl -sLf https://spacevim.org/install.sh | bash
@@ -37,7 +15,7 @@ then change `font` and `Non-ascii font`  in iterm2 preferences-profilers-text
   markdown, add
   ```
   [[custom_plugins]]
-  name = \'iamcco/mathjax-support-for-mkdp'
+  name = 'iamcco/mathjax-support-for-mkdp'
   merged = 0
   
   [[custom_plugins]]
@@ -45,7 +23,7 @@ then change `font` and `Non-ascii font`  in iterm2 preferences-profilers-text
   merged = 0
   ```
   to `~/.SpaceVim.d/init.toml` then `:MarkDownPreview` in vim
-5. vscode remove server(linux version since remote-server is always centos)
+2. vscode remove server(linux version since remote-server is always centos)
 ```
 cd ~/Downloads
 wget https://github.com/cdr/code-server/releases/download/1.939-vsc1.33.1/code-server1.939-vsc1.33.1-linux-x64.tar.gz
@@ -54,3 +32,33 @@ cd code-server1.939-vsc1.33.1-linux-x64
 echo "alias code-server="$(pwd)/code-server"" >> ~/.zshrc
 ```
 
+3. git public key
+```
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+```
+copy information to ssh	keys in github
+
+3. useful spacevim hot keys:
+```
+\ num                 switch to table num
+sq                    close opened file
+q                     close less important file
+:e file               new file
+<F3>                  open/close vimfiler
+(in vimfiler) sg/sv   open file in split screen 
+SPC f f               fzf find file 
+SPC s /               global grep
+(in vimfiler) i       search for history file
+SPC l r               run code
+SPC c l               comment/uncomment
+:SPUpdate             update plugins
+:MarkdownPreview      preview markdown
+SPC '                 open shell
+```
+
+### tips
+
+---
+
+1. vim: YouCompleteMe have to download the library manually; vim have to update to version 8.x to install spacevim
