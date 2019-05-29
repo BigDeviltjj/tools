@@ -61,4 +61,4 @@ SPC '                 open shell
 
 ---
 
-1. vim: YouCompleteMe have to download the library manually; vim have to update to version 8.x to install spacevim
+1. vim: YouCompleteMe have to download the library manually; run `install_vim.sh` to update vim to install spacevim
