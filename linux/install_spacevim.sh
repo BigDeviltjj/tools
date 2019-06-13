@@ -14,7 +14,7 @@ echo "
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "gruvbox"
+    colorscheme = "srcery"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -63,6 +63,9 @@ default_height = 30
 [[custom_plugins]]
   name = 'iamcco/markdown-preview.vim'
   merged = 0
+
+[[layers]]
+  name = "colorscheme"
 " > ~/.SpaceVim.d/init.toml 
 
 mkdir -p ~/.SpaceVim.d/autoload
