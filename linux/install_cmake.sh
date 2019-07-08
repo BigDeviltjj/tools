@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sudo apt-get remove cmake
-version=3.12
-build=2
+version=3.14
+build=0
 mkdir ~/temp
 cd ~/temp
 wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz

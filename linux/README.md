@@ -62,3 +62,16 @@ SPC '                 open shell
 ---
 
 1. vim: YouCompleteMe have to download the library manually; run `install_vim.sh` to update vim to install spacevim
+
+2. github:
+  * show history submit log:`git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"`
+  * create remote branch and corresponding local branch: `git checkout -b dev origin/dev`
+  * make local branch assigned to remote branch: `git branch --set-upstream-to=origin/dev dev`
+  * change last commit: `git commit --amend`
+
+3. proxy:
+  * `shadowshocks` in terminal:
+  ```
+  alias proxy='export all_proxy=socks5://127.0.0.1:1086'
+  alias unproxy='unset all_proxy' 
+  ```
